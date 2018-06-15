@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:hardwareAccelerated="true">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".wikipedia.activities.MainActivity"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,8 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ArticleDetailActivity" />
-        <activity android:name=".activities.SearchActivity" />
+        <activity android:name=".wikipedia.activities.ArticleDetailActivity" />
+        <activity android:name=".wikipedia.activities.SearchActivity" />
     </application>
 
 </manifest>
