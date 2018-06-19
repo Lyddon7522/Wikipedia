@@ -19,7 +19,7 @@ object Urls {
                 "&inprop=url"
     }
 
-    fun getRandom(take: Int) : String {
+    fun getRandomUrl(take: Int) : String {
         return BaseUrl + "?action=query" +
                 "&format=json" + //he didn't have the &
                 "&formatversion=2" +

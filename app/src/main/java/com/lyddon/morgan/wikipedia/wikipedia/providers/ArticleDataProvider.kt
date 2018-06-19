@@ -5,7 +5,6 @@ import com.github.kittinunf.fuel.core.ResponseDeserializable
 import com.github.kittinunf.fuel.httpGet
 import com.google.gson.Gson
 import com.lyddon.morgan.wikipedia.wikipedia.models.Urls
-import com.lyddon.morgan.wikipedia.wikipedia.models.WikiPage
 import com.lyddon.morgan.wikipedia.wikipedia.models.WikiResult
 import java.io.Reader
 
@@ -26,7 +25,8 @@ class ArticleDataProvider {
     }
 
     fun getRandom(take: Int, responseHandler: (result: WikiResult) -> Unit?){
-        Urls.getRandom(take).httpGet().responseObject(WikipediaDataDeserializer()){_, response, result ->
+
+        Urls.getRandomUrl(take).httpGet().responseObject(WikipediaDataDeserializer()){ _, response, result ->
             if (response.statusCode != 200){
                 throw Exception("Unable to get articles")
             }
