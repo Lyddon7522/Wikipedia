@@ -1,5 +1,5 @@
 package com.lyddon.morgan.wikipedia.wikipedia.models
 
 class WikiResult {
-    val result: WikiQueryData? = null
+    val query: WikiQueryData? = null
 }
