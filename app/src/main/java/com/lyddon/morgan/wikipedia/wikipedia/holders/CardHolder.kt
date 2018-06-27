@@ -10,7 +10,6 @@ import com.lyddon.morgan.wikipedia.R
 import com.lyddon.morgan.wikipedia.wikipedia.activities.ArticleDetailActivity
 import com.lyddon.morgan.wikipedia.wikipedia.models.WikiPage
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.article_card_item.view.*
 
 class CardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val articleImageView: ImageView = itemView.findViewById<ImageView>(R.id.article_image)
@@ -19,7 +18,7 @@ class CardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var currentPage: WikiPage? = null
 
     init {
-        itemView.setOnClickListener {
+        itemView.setOnClickListener { view: View? ->
             var detailPageIntent = Intent(itemView.context, ArticleDetailActivity::class.java)
             var pageJson = Gson().toJson(currentPage)
             detailPageIntent.putExtra("page", pageJson)
@@ -34,6 +33,6 @@ class CardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         // load image lazily with Picasso
         if (page.thumbnail != null)
-            Picasso.with(itemView.context).load(page.thumbnail.source).into(articleImageView)
+            Picasso.with(itemView.context).load(page.thumbnail!!.source).into(articleImageView)
     }
 }

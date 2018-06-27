@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_article_detail.*
 import com.lyddon.morgan.wikipedia.R
