@@ -41,4 +41,8 @@ dependencies {
 
     // Picasso Image Loading
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    //Anko
+    implementation 'org.jetbrains.anko:anko-sqlite:0.10.5'
+    implementation 'org.jetbrains.anko:anko-commons:0.10.5'
 }
