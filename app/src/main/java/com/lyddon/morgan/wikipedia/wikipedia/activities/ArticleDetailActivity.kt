@@ -10,6 +10,7 @@ import android.webkit.WebViewClient
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_article_detail.*
 import com.lyddon.morgan.wikipedia.R
+import com.lyddon.morgan.wikipedia.R.id.article_detail_webview
 import com.lyddon.morgan.wikipedia.wikipedia.models.WikiPage
 
 class ArticleDetailActivity : AppCompatActivity() {

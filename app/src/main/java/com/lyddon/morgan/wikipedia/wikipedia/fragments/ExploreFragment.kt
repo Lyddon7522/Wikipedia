@@ -2,6 +2,7 @@ package com.lyddon.morgan.wikipedia.wikipedia.fragments
 
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -14,8 +15,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.lyddon.morgan.wikipedia.R
+import com.lyddon.morgan.wikipedia.wikipedia.WikiApplication
 import com.lyddon.morgan.wikipedia.wikipedia.activities.SearchActivity
 import com.lyddon.morgan.wikipedia.wikipedia.adapters.ArticleCardRecyclerAdapter
+import com.lyddon.morgan.wikipedia.wikipedia.managers.WikiManager
 import com.lyddon.morgan.wikipedia.wikipedia.providers.ArticleDataProvider
 
 /**
@@ -23,11 +26,17 @@ import com.lyddon.morgan.wikipedia.wikipedia.providers.ArticleDataProvider
  *
  */
 class ExploreFragment : Fragment() {
-    private  val articleProvider: ArticleDataProvider = ArticleDataProvider()
+    private  var wikiManager: WikiManager? = null
     var searchCardView: CardView? = null
     var exploreRecycler: RecyclerView? = null
     var adapter: ArticleCardRecyclerAdapter = ArticleCardRecyclerAdapter()
     var refresher: SwipeRefreshLayout? = null
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+
+        wikiManager = (activity.applicationContext as WikiApplication).wikiManager
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -58,7 +67,7 @@ class ExploreFragment : Fragment() {
         refresher?.isRefreshing = true
 
         try {
-            articleProvider.getRandom(15, { wikiResult ->
+            wikiManager?.getRandom(15, { wikiResult ->
                 adapter.currentResults.clear()
                 adapter.currentResults.addAll(wikiResult.query!!.pages)
                 activity.runOnUiThread{
