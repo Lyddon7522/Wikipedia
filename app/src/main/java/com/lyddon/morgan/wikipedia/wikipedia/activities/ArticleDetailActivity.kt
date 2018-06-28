@@ -12,6 +12,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_article_detail.*
 import com.lyddon.morgan.wikipedia.R
 import com.lyddon.morgan.wikipedia.R.id.article_detail_webview
+import com.lyddon.morgan.wikipedia.R.id.toolbar
 import com.lyddon.morgan.wikipedia.wikipedia.WikiApplication
 import com.lyddon.morgan.wikipedia.wikipedia.managers.WikiManager
 import com.lyddon.morgan.wikipedia.wikipedia.models.WikiPage
@@ -37,7 +38,7 @@ class ArticleDetailActivity : AppCompatActivity() {
         supportActionBar?.title = currentPage?.title
         article_detail_webview?.webViewClient = object : WebViewClient(){
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                return true
+                return false
             }
         }
 
